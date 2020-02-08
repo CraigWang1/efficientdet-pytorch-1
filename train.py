@@ -106,12 +106,12 @@ def main(arg=None):
 
         # print('Evaluating dataset')
         mAP = coco_eval.evaluate_coco(dataset_val, efficientdet)
-        # writer.add_scalar('Test/mAP', mAP, epoch_num)
+        writer.add_scalar('Test/mAP', mAP, epoch_num)
         print('Save Model')
-        # torch.save(efficientdet.module.state_dict(), './weights/retinanet_{}.pth'.format(epoch_num))
+        torch.save(efficientdet.module.state_dict(), './weights/retinanet_{}.pth'.format(epoch_num))
         # scheduler.step(np.mean(epoch_loss))
         scheduler.step(epoch=epoch_num)
-# writer.close()
+writer.close()
 
 
 if __name__ == '__main__':
