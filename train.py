@@ -111,7 +111,6 @@ def main(arg=None):
         torch.save(efficientdet.module.state_dict(), './weights/retinanet_{}.pth'.format(epoch_num))
         # scheduler.step(np.mean(epoch_loss))
         scheduler.step(epoch=epoch_num)
-writer.close()
 
 
 if __name__ == '__main__':
